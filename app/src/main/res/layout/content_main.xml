@@ -13,25 +13,12 @@
     android:layout_height="500dp">
 
     <TextView
-        android:id="@+id/lebel"
-        android:layout_width="300dp"
-        android:layout_height="30dp"
-        android:layout_marginLeft="50dp"
-        android:layout_marginTop="68dp"
-        android:text="Interstitial sample app"
-        android:textAlignment="center"
-        android:textColor="@android:color/black"
-        android:textSize="18sp"
-        tools:layout_editor_absoluteX="42dp"
-        tools:layout_editor_absoluteY="68dp" />
-
-    <TextView
         android:id="@+id/textView2"
         android:layout_width="350dp"
         android:layout_height="30dp"
         android:layout_marginLeft="17dp"
         android:layout_marginTop="146dp"
-        android:text="loadAd method triggered on app launch. "
+        android:text="Prefetch Method called on App Launch"
         android:textAlignment="center"
         android:textColor="@android:color/black"
         android:textSize="18sp"
@@ -53,19 +40,6 @@
         tools:layout_editor_absoluteY="342dp" />
 
     <TextView
-        android:id="@+id/textView3"
-        android:layout_width="340dp"
-        android:layout_height="100dp"
-        android:layout_marginLeft="2dp"
-        android:layout_marginTop="230dp"
-        android:text="Below showAd button will only enable when the ad is loaded"
-        android:textAlignment="center"
-        android:textColor="@android:color/black"
-        android:textSize="18sp"
-        tools:layout_editor_absoluteX="2dp"
-        tools:layout_editor_absoluteY="230dp" />
-
-    <TextView
         android:id="@+id/textView4"
         android:layout_width="300dp"
         android:layout_height="30dp"
@@ -78,6 +52,16 @@
         android:visibility="visible"
         tools:layout_editor_absoluteX="42dp"
         tools:layout_editor_absoluteY="363dp" />
+
+    <Button
+        android:id="@+id/button2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/button"
+        android:layout_below="@+id/textView2"
+        android:layout_marginTop="24dp"
+        android:text="LoadAD"
+        android:onClick="loadAd"/>
 
 </RelativeLayout>
 

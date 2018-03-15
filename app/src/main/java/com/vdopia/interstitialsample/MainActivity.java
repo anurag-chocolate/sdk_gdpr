@@ -29,7 +29,10 @@ public class MainActivity extends RequestPermissionActivity implements RewardedA
     private LVDORewardedAd mRewardedAd;
     private static final String TAG = "RewardedActivity";
     Button CLICK;
+    Button Load;
     TextView STRING;
+
+    LVDOAdRequest adRequest = new LVDOAdRequest(this);
 
 
     @Override
@@ -39,11 +42,13 @@ public class MainActivity extends RequestPermissionActivity implements RewardedA
         //Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         //setSupportActionBar(toolbar);
         CLICK=(Button) findViewById(R.id.button);
+        Load=(Button) findViewById(R.id.button2);
         //CLICK=(Button) findViewById();
         STRING=(TextView) findViewById(R.id.textView4);
-        CLICK.setVisibility(View.VISIBLE);
+        CLICK.setVisibility(View.INVISIBLE);
         STRING.setVisibility(View.INVISIBLE);
         prefetch();
+        Load.setVisibility(View.VISIBLE);
     }
 
     @Override
@@ -54,26 +59,25 @@ public class MainActivity extends RequestPermissionActivity implements RewardedA
     }
 
     public void prefetch(){
-        LVDOAdRequest adRequest = new LVDOAdRequest(this);
+
+
         LVDORewardedAd.prefetch(this, "EnP5f4", adRequest);
+
+    }
+
+    public  void loadAd(View v){
+        loadRewarded();
 
     }
     public void click(View v){
 
         Toast.makeText(getBaseContext(), "To mainactivity2", Toast.LENGTH_SHORT).show();
-        Intent toy=new Intent(MainActivity.this,Main2Activity.class);
-        startActivity(toy);
-        //calling show ad method
-        //mInterstitialAd.show();
-       // mRewardedAd.setRewardAdListener(this);
-       //mRewardedAd.showRewardAd("JK69GBeXDtYOldrZ", "Chocolate1", "coin", "30");
-        //mRewardedAd.showRewardAd("JK69GBeXDtYOldrZ", "Chocolate1", "coin", "30");
-        loadRewarded();
-        /*try {
+
+        try {
             mRewardedAd.showRewardAd("JK69GBeXDtYOldrZ", "Chocolate1", "coin", "30");
         } catch(com.vdopia.ads.lw.ChocolateAdException e){
             Log.e("SouravTest", "show failed ",e);
-        }*/
+        }
 
 
     }
@@ -85,59 +89,38 @@ public class MainActivity extends RequestPermissionActivity implements RewardedA
     private void loadRewarded() {
         //mRewardedAd = LVDORewardedAd.getInstance();
         mRewardedAd = new LVDORewardedAd(this, "EnP5f4", this);
-        LVDOAdRequest adRequest = new LVDOAdRequest(this);
 
-        //ArrayList<LVDOConstants.PARTNERS> mPartnerNames = new ArrayList<>();
-        //LVDOConstants.PARTNERS partner = (LVDOConstants.PARTNERS) this.getIntent().getSerializableExtra(LVDOConstants.PARTNERS.ALL.toString());
-        //LVDOConstants.PARTNERS partner= LVDOConstants.PARTNERS.ALL;
-        //mPartnerNames.add(partner);
-        //adRequest.setPartnerNames(mPartnerNames);
+
+
         adRequest.setDmaCode("807");
         adRequest.setEthnicity("Asian");
         adRequest.setPostalCode("110096");
         adRequest.setCurrPostal("201301");
         adRequest.setDmaCode("807");
         adRequest.setAge("27");
-        //adRequest.setMaritalStatus("single");
+
         adRequest.setGender(LVDOAdRequest.LVDOGender.MALE);
-        //adRequest.setBirthday(Utils.getDate());
+
 
         adRequest.setRequester("Vdopia");
-        //adRequest.setAppBundle("chocolateApp");
+
         adRequest.setAppDomain("vdopia.com");
-        //adRequest.setAppName("VdopiaSampleApp");
+
         adRequest.setAppStoreUrl("play.google.com");
         adRequest.setCategory("Education");
         adRequest.setPublisherDomain("vdopia.com");
-        //mRewardedAd.fetchRewardAd(this,"qZPI8O", adRequest,this);
-        //mRewardedAd.fetchRewardAd(this,"4vwFOd", adRequest,this);
         mRewardedAd.loadAd(adRequest);
         Toast.makeText(getBaseContext(), "LOAD AD event called", Toast.LENGTH_SHORT).show();
 
     }
 
-    /*@Override
-    public void onInterstitialLoaded(LVDOInterstitialAd interstitialAd) {
-        Log.d(TAG, "Interstitial Loaded");
-        //mInterstitialAd.show();
-        CLICK.setVisibility(View.VISIBLE);
-        STRING.setVisibility(View.INVISIBLE);
-       // mInterstitialAd.show();
-        mRewardedAd.setRewardAdListener(this);
-        mRewardedAd.showRewardAd("jq4glYbZqSRYB0Oz", "Chocolate1", "coin", "30");
-    }
-*/
+
     @Override
     public void onRewardedVideoLoaded(LVDORewardedAd rewardedAd){
-        //\\mRewardedAd.setAdRequest(adRequest);
+
         Log.d(TAG, "onRewardedVideoLoaded");
-        //CLICK.setVisibility(View.VISIBLE);
-        //STRING.setVisibility(View.INVISIBLE);
-        try {
-            mRewardedAd.showRewardAd("JK69GBeXDtYOldrZ", "Chocolate1", "coin", "30");
-        } catch(com.vdopia.ads.lw.ChocolateAdException e){
-            Log.e("SouravTest", "show failed ",e);
-        }
+        CLICK.setVisibility(View.VISIBLE);
+        Load.setVisibility(View.INVISIBLE);
 
 
     }
@@ -173,6 +156,8 @@ public class MainActivity extends RequestPermissionActivity implements RewardedA
     public void onRewardedVideoCompleted(LVDORewardedAd rewardedAd){
 
         Log.d(TAG, "onRewardedVideoCompleted");
+        CLICK.setVisibility(View.VISIBLE);
+        Load.setVisibility(View.INVISIBLE);
     }
 
 
