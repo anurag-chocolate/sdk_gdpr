@@ -61,7 +61,7 @@ public class MainActivity extends RequestPermissionActivity implements RewardedA
     public void prefetch(){
 
 
-        LVDORewardedAd.prefetch(this, "EnP5f4", adRequest);
+        LVDORewardedAd.prefetch(this, "0DqXTL", adRequest);
 
     }
 
@@ -74,7 +74,7 @@ public class MainActivity extends RequestPermissionActivity implements RewardedA
         Toast.makeText(getBaseContext(), "To mainactivity2", Toast.LENGTH_SHORT).show();
 
         try {
-            mRewardedAd.showRewardAd("JK69GBeXDtYOldrZ", "Chocolate1", "coin", "30");
+            mRewardedAd.showRewardAd("n4rjEBxlHR4ml71x", mRewardedAd.getWinningPartnerName(), "indiancoin_"+mRewardedAd.getWinningPartnerName(), "22");
         } catch(com.vdopia.ads.lw.ChocolateAdException e){
             Log.e("SouravTest", "show failed ",e);
         }
@@ -88,7 +88,7 @@ public class MainActivity extends RequestPermissionActivity implements RewardedA
 
     private void loadRewarded() {
         //mRewardedAd = LVDORewardedAd.getInstance();
-        mRewardedAd = new LVDORewardedAd(this, "EnP5f4", this);
+        mRewardedAd = new LVDORewardedAd(this, "0DqXTL", this);
 
 
 
