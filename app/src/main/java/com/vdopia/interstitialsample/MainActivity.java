@@ -74,7 +74,7 @@ public class MainActivity extends RequestPermissionActivity implements RewardedA
         Toast.makeText(getBaseContext(), "To mainactivity2", Toast.LENGTH_SHORT).show();
 
         try {
-            mRewardedAd.showRewardAd("n4rjEBxlHR4ml71x", mRewardedAd.getWinningPartnerName(), "indiancoin_"+mRewardedAd.getWinningPartnerName(), "22");
+            mRewardedAd.showRewardAd("JK69GBeXDtYOldrZ", "Chocolate1", "indiancoin_"+mRewardedAd.getWinningPartnerName(), "22");
         } catch(com.vdopia.ads.lw.ChocolateAdException e){
             Log.e("SouravTest", "show failed ",e);
         }
