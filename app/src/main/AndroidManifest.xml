@@ -19,7 +19,8 @@
         <activity
             android:name=".MainActivity"
             android:label="@string/app_name"
-            android:theme="@style/AppTheme.NoActionBar">
+            android:theme="@style/AppTheme.NoActionBar"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
@@ -34,5 +35,8 @@
         <provider android:name="com.duapps.ad.stats.DuAdCacheProvider"
             android:authorities="${applicationId}.DuAdCacheProvider"
             android:exported="false"> </provider>
+        <meta-data
+            android:name="applovin.sdk.key"
+            android:value="qwFfGU-34yfW7sQ0boTdLe5GOlb6TG1HAHxRnwUrs8M--o-aZSCv5IAT1naV1bnCuidec6UTFsSEdRqCv15_JG" />
     </application>
 </manifest>
